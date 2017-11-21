@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>支付结果</title>
+    <base href="http://newpayment-test.chinapay.com/">
+    <link type="text/css" rel="stylesheet" href="/CTITS/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/CTITS/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/CTITS/css/link.css">
+    <link type="text/css" rel="stylesheet" href="/CTITS/css/syt.css">
+    <link href="/CTITS/css/result.css" rel="stylesheet" type="text/css">
+    <script src="/CTITS/js/jquery-1.11.0.min.js"></script>
+    <script src="/CTITS/js/comm/result.js"></script>
+    <script src="/CTITS/js/comm/global.js"></script>
+</head>
+<body>    <!-- header -->
+<div id="header">
+    <div class="h_top">
+        <div class="h_main">
+            <div class="h_t_left"> 您好，欢迎来到Chinapay网上支付平台</div>
+            <div class="bclear"></div>
+        </div>
+    </div>
+    <div class="h_main">
+        <div class="logo"><img src="http://newpayment-test.chinapay.com:80/CTITS/images/logo_new.gif"></div>
+    </div>
+</div>
+<div class="wrapper">        <!-- order message -->
+    <div id="order">
+        <div class="o_top">
+            <div class="o_t_message f14px left">订单结果</div>
+            <div class="left newpay_f_t_01" id="commodityMsg"></div>
+        </div>
+        <div class="o_result">
+            <div class='r_main'>
+                <div class='r_m_main'>
+                    <div class='left r_m_m_left' style="width: 75%;"><input id="OrderStatus" type="hidden"
+                                                                            name="OrderStatus" value="0003"> <input
+                            id="ctits_middleOrderStatus" type="hidden" name="ctits_middleOrderStatus" value=""> <input
+                            id="notify_url" style="display:none" value=""/>
+                        <div id="resultFail" style="display:none;">
+                            <div class="o_r_list o_r_l_other">
+                                <div class="o_r_l_left left" style="width: 140px;"><img
+                                        src="http://newpayment-test.chinapay.com:80/CTITS/images/sb.gif"></div>
+                                <div class="o_r_l_right left" style="width: auto;">
+                                    <div class="font_result_01">交易失败</div>
+                                </div>
+                                <div class="bclear"></div>
+                            </div>
+                            <div class="o_r_list o_r_l_other">
+                                <div class="o_r_l_left left" style="width: 140px;">&nbsp;</div>
+                                <div class="o_r_l_right left" style="width: auto;">
+                                    <div class="font_result_02"><input type="hidden" id="errorMsg"
+                                                                       value="商户未开通此交易类型"><span
+                                            id="result_icon_errorMsg">错误信息：商户未开通此交易类型。</span></div>
+                                </div>
+                                <div class="bclear"></div>
+                            </div>
+                        </div>
+                        <div id="noResult" style="display:none;">
+                            <div class="o_r_list o_r_l_other">
+                                <div class="o_r_l_left left" style="width: 140px;"><img
+                                        src="http://newpayment-test.chinapay.com:80/CTITS/images/yc.gif"></div>
+                                <div class="o_r_l_right left" style="width: auto;">
+                                    <div class="font_result_01_cg">支付处理中，请稍后查询！</div>
+                                </div>
+                                <div class="bclear"></div>
+                            </div>
+                        </div>
+                        <div id="resultSuccess" style="display:none;">
+                            <div class="o_r_list o_r_l_other">
+                                <div class="o_r_l_left left" style="width: 140px;"><img
+                                        src="http://newpayment-test.chinapay.com:80/CTITS/images/cg.gif"></div>
+                                <div class="o_r_l_right left" style="width: auto;">
+                                    <div class="font_result_01_cg">交易成功！</div>
+                                </div>
+                                <div class="bclear"></div>
+                            </div>
+                        </div>
+                        <div class="o_r_list o_r_l_other">
+                            <div class="o_r_l_left left" style="width: 140px;">&nbsp;</div>
+                            <div class="o_r_l_right left" style="width: auto;">
+                                <div class="font_result_03"> 订单金额：<span id="show_orderAmt">0</span>元
+                                    <script type="text/javascript">                                                parseF2Y("10", "show_orderAmt");                                            </script>
+                                </div>
+                            </div>
+                            <div class="bclear"></div>
+                        </div>
+                        <div class="o_r_list">
+                            <div class="o_r_l_left left" style="width: 140px;">&nbsp;</div>
+                            <div class="o_r_l_right left" style="width: auto;">
+                                <div class="font_result_03">商户名称：重庆市新美育文化（间联APP）测试</div>
+                            </div>
+                            <div class="bclear"></div>
+                        </div>
+                        <div class="o_r_list">
+                            <div class="o_r_l_left left" style="width: 140px;">&nbsp;</div>
+                            <div class="o_r_l_right left" style="width: auto;">
+                                <div class="font_result_03">商户订单号：test1123</div>
+                            </div>
+                            <div class="bclear"></div>
+                        </div>
+                        <div class="o_r_list o_r_list_other">
+                            <div class="o_r_l_left left" style="width: 140px;">&nbsp;</div>
+                            <div class="o_r_l_right left" style="width: auto;">
+                                <div class="font_result_line">
+                                    <div class='btn_05'><a href="https://ump.chinaums.com/regist.jsp">注册为Chinapay用户</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bclear"></div>
+                        </div>
+                        <div class="o_r_list o_r_list_other">
+                            <div class="o_r_l_left left" style="width: 140px;">&nbsp;</div>
+                            <div class="o_r_l_right left" style="width: auto;">
+                                <form id="notify_mer_form" name="notifyMer" style="margin-left: 25px;" method="post">
+                                    <input style="display:none" type="hidden" name="TranType" value='0008'/> <input
+                                        style="display:none" type="hidden" name="OrderStatus" value='0003'/> <input
+                                        style="display:none" type="hidden" name="TranDate" value='20171116'/> <input
+                                        style="display:none" type="hidden" name="MerId" value='000001711091783'/> <input
+                                        style="display:none" type="hidden" name="CurryNo" value='CNY'/> <input
+                                        style="display:none" type="hidden" name="Version" value='20140728'/> <input
+                                        style="display:none" type="hidden" name="MerOrderNo" value='test1123'/> <input
+                                        style="display:none" type="hidden" name="OrderAmt" value='10'/> <input
+                                        style="display:none" type="hidden" name="Signature"
+                                        value='SnStU0LRisl6EW06aRz94ZgcWS+jVyrZSeXH14BSTCEPL3C3VGNM5BIXTYmM06C6+dqNLSdZJPXdXTbfq8iEmQxhGnP+lrrqPED5N6Fg82Cep3PiLpdz7JUcawrYHdf6J8Ss+D9t2ZT6HZgk8sRopzWCBvI66RUWNJu5CCNR3Tk='/>
+                                    <input style="display:none" type="hidden" name="BusiType" value='0001'/></form>
+                                <input style="display:none" type="hidden" id="jump_to_mer_count" value="10"/></div>
+                            <div class="bclear"></div>
+                        </div>
+                    </div>
+                    <div class='right r_m_m_right' style="width: 24%;">
+                        <div class='one'><img style="width:100%;"
+                                              src='http://newpayment-test.chinapay.com:80/CTITS/images/wxgzh.jpg'></div>
+                        <div style="text-align: center;">扫一扫</div>
+                        <div style="text-align: center;">关注更多优惠</div>
+                    </div>
+                    <div class='bclear'></div>
+                </div>
+            </div>
+            <div class='bclear'></div>
+        </div>
+    </div>                                <!-- prompt --><!-- labmain --><!-- adthree -->
+    <div id="adthree">
+        <div class="ad_one left"><a href="http://c.admaster.com.cn/c/a17784,b200477802,c3803,i0,m101,h"> <img
+                src="http://newpayment-test.chinapay.com:80/CTITS/images/ad/ad01min.jpeg?ver=123"> </a></div>
+        <div class="ad_two left"><a href="http://static.95516.com/static/page/yhfwb/donghang3/donghang_3.html"> <img
+                src="http://newpayment-test.chinapay.com:80/CTITS/images/ad/ad02min.jpg?ver=123"> </a></div>
+        <div class="ad_three right"><a
+                href="http://www.efunds.com.cn/html/upd/201705/000620luodiye_20170523/index.html?pmf_source=xjzl_117">
+            <img src="http://newpayment-test.chinapay.com:80/CTITS/images/ad/ad06min.png?ver=123"> </a></div>
+        <div class="bclear"></div>
+    </div>                <!--footer-->
+    <div id="footer" style="text-align: center;"> Tel:021-61871399 | <a href="http://www.ChinaPay.com">http://www.ChinaPay.com</a>
+        | <a href="mailto:operation@chinapay.com">E-mail:cp operation@chinapay.com</a><br/> ChinaPay Merchant Console |
+        Copyright ©2002-2017 ChinaPay e-payment service Co.ltd
+    </div>
+</div>
+</body>
+</html>

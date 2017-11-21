@@ -1,2 +1,6 @@
 rootProject.name = 'test'
+include 'jpa'
+include 'mybatis'
+
+
 

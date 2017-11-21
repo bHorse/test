@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xiaosky.util.test.mybatis.dao.PersonDao">
+
+
+    <sql id="Assist">
+        <where>
+        <foreach collection="require" item="req" separator=" ">
+            ${req.prefix} ${req.require}
+            <if test="req.value!=null"> #{req.value} </if>
+            ${req.suffix}
+        </foreach>
+    </where>
+    </sql>
+
+    <sql id="updateAssist">
+        <where>
+            <foreach collection="assist.require" item="req" separator=" ">
+                ${req.require} #{req.value}
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="person_column">
+        id,name,money
+    </sql>
+
+
+
+    <select id="getById" parameterType="java.lang.Integer" resultType="cn.xiaosky.util.test.mybatis.entity.Person">
+        select 
+            <include refid="person_column" />
+        from person
+        where id = #{id}
+    </select>
+
+    <update id="updateById" parameterType="cn.xiaosky.util.test.mybatis.entity.Person" >
+        UPDATE person SET  name=#{name},money=#{money} WHERE  id=#{id}
+    </update>
+
+
+
+
+</mapper>

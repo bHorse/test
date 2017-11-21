@@ -1,20 +1,31 @@
 group 'cn.xiaosky.util.test'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
 
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
+buildscript{
+    ext {
+        projectIds = ['group': 'cn.xiaosky.util.test', 'version': '0.1']
+    }
 }
-dependencies {
-    compile 'org.springframework:spring-context:4.3.12.RELEASE'
-    compile('mysql:mysql-connector-java:5.1.44')
-    compile 'org.mybatis:mybatis-spring:1.3.1'
-    compile 'commons-dbcp:commons-dbcp:1.4'
-    compile 'org.mybatis:mybatis:3.4.5'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
-    compile 'org.springframework:spring-jdbc:4.3.12.RELEASE'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+allprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    group = projectIds.group
+    version = projectIds.version
+    sourceCompatibility = 1.8
+
+    dependencies {
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
+        compile 'org.springframework:spring-jdbc:4.3.12.RELEASE'
+        compile 'org.springframework:spring-context:4.3.12.RELEASE'
+        compile('mysql:mysql-connector-java:5.1.44')
+        compile 'org.apache.tomcat:tomcat-jdbc:9.0.1'
+        compile ('com.fasterxml.jackson.core:jackson-databind:2.8.10')
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+    tasks.withType(JavaCompile) { options.encoding = "UTF-8" }
 }
